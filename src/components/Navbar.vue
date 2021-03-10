@@ -1,13 +1,13 @@
 <template>
   <nav>
-    <div class="navbar navbar-light bg-light shadow">
+    <div class="navbar navbar-dark bg-dark" v-if="isLogin">
       <div class="container d-flex justify-content-between">
         <a href="#" class="navbar-brand d-flex align-items-center">
-          <strong>Kanban App</strong>
+          Kanban App
         </a>
         <div class="ml-auto">
-          <button class="btn btn-success" v-if="isLogin && !showUpdate" @click.prevent="changeAddTask(true)">Add Task</button>
-          <button class="btn btn-danger" v-if="isLogin" @click.prevent="logout">Logout</button>
+          <button class="btn btn-dark" v-if="isLogin && !showUpdate" @click.prevent="changeAddTask(true)">Add Task</button>
+          <button class="btn btn-dark" v-if="isLogin" @click.prevent="logout">Logout</button>
         </div>
       </div>
     </div>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+
 export default {
     name: 'Navbar',
     props: ['isLogin', 'changeAddTask', 'changeIsLogin', 'showUpdate'],

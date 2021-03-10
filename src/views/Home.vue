@@ -1,5 +1,5 @@
 <template>
-  <div class="container row flex-row mx-auto mb-5">
+  <div class="row flex-row mx-5">
     <Category :updateTask="updateTask" :fetchTasks="fetchTasks" :tasks="tasks" v-for="category in categories" :key="category.id" :category="category"></Category>
   </div>
 </template>
@@ -28,7 +28,7 @@ export default {
     fetchTasks() {
       axios({
         method: 'GET', 
-        url: 'http://localhost:3000/tasks',
+        url: 'https://kanban-monyta.herokuapp.com/tasks',
         headers: {
           access_token: localStorage.access_token
         }

@@ -1,11 +1,15 @@
 <template>
     <div>
-    <Navbar :isLogin="isLogin" :changeIsLogin="changeIsLogin" :changeAddTask="changeAddTask" :showUpdate="showUpdate"></Navbar>
+    <div v-if="isLogin">
+        <div class="background-style">
+        <Navbar :isLogin="isLogin" :changeIsLogin="changeIsLogin" :changeAddTask="changeAddTask" :showUpdate="showUpdate"></Navbar>
+        <AddForm v-if="addTask" :changeAddTask="changeAddTask"></AddForm>
+        <UpdateForm :dataUpdate="dataUpdate" v-if="showUpdate" :changeUpdateTask="changeUpdateTask"></UpdateForm>
+        <Home :updateTask='updateTask' v-if="!addTask && !showUpdate" :changeUpdateTask="changeUpdateTask"></Home>
+        </div>
+    </div>
     <LoginForm v-if="!isLogin && !showRegister" :changeRegister="changeRegister" :changeIsLogin="changeIsLogin"></LoginForm>
     <RegisterForm v-if="!isLogin && showRegister" :changeRegister="changeRegister"></RegisterForm>
-    <AddForm v-if="isLogin && addTask" :changeAddTask="changeAddTask"></AddForm>
-    <UpdateForm :dataUpdate="dataUpdate" v-if="isLogin && showUpdate" :changeUpdateTask="changeUpdateTask"></UpdateForm>
-    <Home :updateTask='updateTask'  v-if="isLogin && !addTask && !showUpdate" :changeUpdateTask="changeUpdateTask"></Home>
     </div>
 </template>
 
@@ -66,5 +70,10 @@ export default {
 </script>
 
 <style>
-
+.background-style {
+    background-image: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 680px;
+}
 </style>

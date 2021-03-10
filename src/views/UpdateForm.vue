@@ -37,7 +37,7 @@ export default {
       updateTask(){
         axios({
           method: 'PUT',
-          url: `http://localhost:3000/tasks/${this.id}`, 
+          url: `https://kanban-monyta.herokuapp.com/tasks/${this.id}`, 
           headers: {
             access_token: localStorage.access_token
           },

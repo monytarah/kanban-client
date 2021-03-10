@@ -36,7 +36,7 @@ export default {
       addTask() {
         axios({
           method: 'POST', 
-          url: 'http://localhost:3000/tasks',
+          url: 'https://kanban-monyta.herokuapp.com/tasks',
           data: {
             title: this.title, 
             category: this.category
